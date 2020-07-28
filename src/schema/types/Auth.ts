@@ -9,7 +9,7 @@ export class Auth {
   message: string;
 
   @Field({ nullable: true })
-  errors?: string;
+  error?: string;
 
   @Field({ nullable: true })
   token?: string;

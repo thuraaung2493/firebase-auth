@@ -4,6 +4,7 @@ import { AddUserInput } from "schema/resolvers/inputTypes/AddUser";
 import { Auth } from "schema/types/Auth";
 
 export const signUp = async ({
+  name,
   email,
   password,
 }: AddUserInput): Promise<Auth> => {
@@ -23,8 +24,8 @@ export const signUp = async ({
     const message = error.message;
     const code = error.code;
     return {
-      message: message,
-      errors: code,
+      message,
+      error: code,
     };
   }
 };
@@ -49,8 +50,8 @@ export const signInWithPassword = async ({
     const message = error.message;
     const code = error.code;
     return {
-      message: message,
-      errors: code,
+      message,
+      error: code,
     };
   }
 };
@@ -70,8 +71,8 @@ export const signInWithToken = async (customToken: string): Promise<Auth> => {
     const message = error.message;
     const code = error.code;
     return {
-      message: message,
-      errors: code,
+      message,
+      error: code,
     };
   }
 };
