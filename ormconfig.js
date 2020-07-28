@@ -1,5 +1,7 @@
+require("dotenv").config()
+
 const host = process.env.DB_HOST || "localhost";
-const port = process.env.DB_PORT || 3390;
+const port = process.env.DB_PORT || 3306;
 const username = process.env.DB_USERNAME || "root";
 const password = process.env.DB_PASSWORD || "root";
 const database = process.env.DB_DATABASE || "firebase_auth";

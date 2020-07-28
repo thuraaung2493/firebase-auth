@@ -21,6 +21,7 @@
     "@types/jest": "^26.0.0",
     "apollo-server": "^2.14.2",
     "class-validator": "^0.12.2",
+    "dotenv": "^8.2.0",
     "fast-glob": "^3.2.2",
     "firebase": "^7.17.1",
     "graphql": "^15.0.0",
