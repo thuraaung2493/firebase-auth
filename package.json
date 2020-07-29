@@ -24,6 +24,7 @@
     "dotenv": "^8.2.0",
     "fast-glob": "^3.2.2",
     "firebase": "^7.17.1",
+    "firebase-admin": "^9.0.0",
     "graphql": "^15.0.0",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",

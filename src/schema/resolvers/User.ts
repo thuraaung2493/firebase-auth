@@ -7,7 +7,10 @@ import {
   signInWithPassword,
   signInWithToken,
   getCurrentUser,
+  updateProfile,
+  deleteUser,
 } from "auth";
+import { UpdateUserInput } from "./inputTypes/UpdateUser";
 
 @Resolver()
 class UserResolver {
@@ -21,6 +24,16 @@ class UserResolver {
   @Query((returns) => [User])
   async user(): Promise<User[]> {
     return await getCurrentUser();
+  }
+
+  @Mutation((returns) => Auth)
+  async updateProfile(@Arg("data") data: UpdateUserInput): Promise<Auth> {
+    return updateProfile(data);
+  }
+
+  @Mutation((returns) => Auth)
+  async deleteUser(@Arg("data") data: UpdateUserInput): Promise<Auth> {
+    return deleteUser(data);
   }
 
   @Mutation((returns) => Auth)

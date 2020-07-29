@@ -1,8 +1,9 @@
 import * as firebase from "firebase/app";
+import * as admin from "firebase-admin";
 import "firebase/auth";
 import { AddUserInput } from "schema/resolvers/inputTypes/AddUser";
 import { Auth } from "schema/types/Auth";
-
+import { UpdateUserInput } from "schema/resolvers/inputTypes/UpdateUser";
 export const signUp = async ({
   name,
   email,
@@ -52,6 +53,43 @@ export const signInWithPassword = async ({
     return {
       message,
       error: code,
+    };
+  }
+};
+
+export const updateProfile = async ({
+  uid,
+  name,
+  email,
+}: UpdateUserInput): Promise<Auth> => {
+  try {
+    await admin.auth().updateUser(uid, {
+      email,
+      displayName: name,
+    });
+    return {
+      uid,
+      message: "Success",
+    };
+  } catch (error) {
+    return {
+      message: error.message,
+      error: error.code,
+    };
+  }
+};
+
+export const deleteUser = async ({ uid }: UpdateUserInput): Promise<Auth> => {
+  try {
+    await admin.auth().deleteUser(uid);
+    return{
+      uid,
+      message:"Successfully Deleted",
+    }
+  } catch (error) {
+    return {
+      message: error.message,
+      error: error.code,
     };
   }
 };
