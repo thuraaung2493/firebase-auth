@@ -21,11 +21,9 @@ export const signUp = async ({
       token,
     };
   } catch (error) {
-    const message = error.message;
-    const code = error.code;
     return {
-      message,
-      error: code,
+      message: error.message,
+      error: error.code,
     };
   }
 };
@@ -47,11 +45,9 @@ export const signInWithPassword = async ({
       token,
     };
   } catch (error) {
-    const message = error.message;
-    const code = error.code;
     return {
-      message,
-      error: code,
+      message: error.message,
+      error: error.code,
     };
   }
 };
@@ -68,11 +64,9 @@ export const signInWithToken = async (customToken: string): Promise<Auth> => {
       token,
     };
   } catch (error) {
-    const message = error.message;
-    const code = error.code;
     return {
-      message,
-      error: code,
+      message: error.message,
+      error: error.code,
     };
   }
 };
